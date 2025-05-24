@@ -18,7 +18,7 @@ namespace proyecto1
     public partial class Form1 : Form
     {
         private const string GroqEndpoint = "https://api.groq.com/openai/v1/chat/completions";
-        private const string GroqApiKey = "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"; 
+        private const string GroqApiKey = "_"; //agregar luego
         private const string Model = "llama3-70b-8192";
 
         public Form1()
@@ -36,8 +36,8 @@ namespace proyecto1
                 return;
             }
 
-            // Fuerza la respuesta en espaÒol
-            string consultaForzada = consulta + "\nResponde siempre en espaÒol.";
+            // Fuerza la respuesta en espa√±ol
+            string consultaForzada = consulta + "\nResponde siempre en espa√±ol.";
 
             textBoxResultadoAI.Text = "Cargando...";
 
@@ -46,7 +46,7 @@ namespace proyecto1
                 string respuesta = await ObtenerRespuestaGroq(consultaForzada);
                 textBoxResultadoAI.Text = respuesta;
 
-                // Guardar autom·ticamente en la base de datos
+                // Guardar autom√°ticamente en la base de datos
                 GuardarEnBaseDeDatos(consulta, respuesta);
                 GenerarArchivos(consulta, respuesta);
             }
@@ -95,7 +95,7 @@ namespace proyecto1
                     return resultado.choices[0].message.content.ToString().Trim();
                 }
 
-                throw new Exception("Se superÛ el lÌmite de reintentos por demasiadas solicitudes (429).");
+                throw new Exception("Se super√≥ el l√≠mite de reintentos por demasiadas solicitudes (429).");
             }
         }
 
@@ -119,7 +119,7 @@ namespace proyecto1
 
                         command.ExecuteNonQuery();
 
-                        MessageBox.Show("Datos guardados con Èxito en la base de datos.");
+                        MessageBox.Show("Datos guardados con √©xito en la base de datos.");
                     }
                 }
                 catch (Exception ex)
@@ -171,7 +171,7 @@ namespace proyecto1
                 mainPart.Document = new Document();
                 Body body = new Body();
 
-                // Agrega la consulta con formato de tÌtulo
+                // Agrega la consulta con formato de t√≠tulo
                 body.Append(
                     new Paragraph(new Run(new DocumentFormat.OpenXml.Wordprocessing.Text("Consulta:")))
                     {
@@ -179,7 +179,7 @@ namespace proyecto1
                     },
                     new Paragraph(new Run(new DocumentFormat.OpenXml.Wordprocessing.Text(consulta))),
 
-                    // Agrega la respuesta con formato de tÌtulo
+                    // Agrega la respuesta con formato de t√≠tulo
                     new Paragraph(new Run(new DocumentFormat.OpenXml.Wordprocessing.Text("Respuesta:")))
                     {
                         ParagraphProperties = new ParagraphProperties(new Bold())
@@ -250,7 +250,7 @@ namespace proyecto1
 
         private string CrearNombreValido(string texto)
         {
-            // Reemplazar caracteres no v·lidos para nombres de archivo
+            // Reemplazar caracteres no v√°lidos para nombres de archivo
             foreach (char c in Path.GetInvalidFileNameChars())
             {
                 texto = texto.Replace(c, '_');
