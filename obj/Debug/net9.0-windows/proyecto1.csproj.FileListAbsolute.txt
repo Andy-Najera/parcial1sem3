@@ -52,4 +52,5 @@ C:\Users\andru\OneDrive\Desktop\PROYECTO1\proyecto1\obj\Debug\net9.0-windows\ref
 C:\Users\andru\OneDrive\Desktop\PROYECTO1\proyecto1\obj\Debug\net9.0-windows\proyecto1.pdb
 C:\Users\andru\OneDrive\Desktop\PROYECTO1\proyecto1\obj\Debug\net9.0-windows\proyecto1.genruntimeconfig.cache
 C:\Users\andru\OneDrive\Desktop\PROYECTO1\proyecto1\obj\Debug\net9.0-windows\ref\proyecto1.dll
-C:\Users\andru\OneDrive\Desktop\PROYECTO1\proyecto1\bin\Debug\net9.0-windows\Microsoft.Office.Interop.PowerPoint.dll
+C:\Users\andru\OneDrive\Desktop\PROYECTO1\proyecto1\obj\Debug\net9.0-windows\proyecto1.Properties.Resources.resources
+C:\Users\andru\OneDrive\Desktop\PROYECTO1\proyecto1\obj\Debug\net9.0-windows\proyecto1.sourcelink.json

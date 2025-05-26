@@ -28,14 +28,6 @@
           }
         }
       },
-      "Microsoft.Office.Interop.PowerPoint/15.0.4420.1018": {
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Office.Interop.PowerPoint.dll": {
-            "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.4420.1017"
-          }
-        }
-      },
       "Newtonsoft.Json/13.0.3": {
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
@@ -127,13 +119,6 @@
       "sha512": "sha512-R5CLzEoeyr7XDB7g3NTxRobcU19agaxVAhGZm+fZUShJGiU4bw8oUgnA2BNFepigJckfFMayOBMAbV3kDXNInA==",
       "path": "documentformat.openxml.framework/3.3.0",
       "hashPath": "documentformat.openxml.framework.3.3.0.nupkg.sha512"
-    },
-    "Microsoft.Office.Interop.PowerPoint/15.0.4420.1018": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3XkJAqbYq93MqqSOPusNE+6Tve5yBkbE92n9W8f+k8Z9AzXeoTMqMYqhZMrzVOp4saHhMMbOD78JkCjvk+qIzw==",
-      "path": "microsoft.office.interop.powerpoint/15.0.4420.1018",
-      "hashPath": "microsoft.office.interop.powerpoint.15.0.4420.1018.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",
