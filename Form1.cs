@@ -18,12 +18,18 @@ namespace proyecto1
 {
     public partial class Form1 : Form
     {
+<<<<<<< HEAD
 
         private const string OpenAiEndpoint = "https://api.openai.com/v1/chat/completions";
         private const string OpenAiApiKey = "APIKEY";
         private const string Model = "gpt-4.1-mini";
         private const string OutputFolder = @"C:\Users\andru\OneDrive\Desktop\PROYECTO1\Powerpoint-word";
         private const string DbConnectionString = "Server=LAPTOP-0I8HCQGL\\SQLEXPRESS;Database=proyecto1;Integrated Security=True;";
+=======
+        private const string GroqEndpoint = "https://api.groq.com/openai/v1/chat/completions";
+        private const string GroqApiKey = "_"; //agregar luego
+        private const string Model = "llama3-70b-8192";
+>>>>>>> 2ea1c1c7c9815997afc8933d24ab2b785b703257
 
         public Form1()
         {
@@ -46,6 +52,12 @@ namespace proyecto1
                 return;
             }
 
+<<<<<<< HEAD
+=======
+            // Fuerza la respuesta en espaÃ±ol
+            string consultaForzada = consulta + "\nResponde siempre en espaÃ±ol.";
+
+>>>>>>> 2ea1c1c7c9815997afc8933d24ab2b785b703257
             textBoxResultadoAI.Text = "Cargando...";
 
             try
@@ -53,7 +65,13 @@ namespace proyecto1
                 string respuesta = await ObtenerRespuestaOpenAI(consulta);
                 textBoxResultadoAI.Text = respuesta;
 
+<<<<<<< HEAD
                 await GuardarEnBaseDeDatos(consulta, respuesta);
+=======
+                // Guardar automÃ¡ticamente en la base de datos
+                GuardarEnBaseDeDatos(consulta, respuesta);
+                GenerarArchivos(consulta, respuesta);
+>>>>>>> 2ea1c1c7c9815997afc8933d24ab2b785b703257
             }
             catch (Exception ex)
             {
@@ -134,7 +152,7 @@ El formato debe ser profesional, con estructura clara y lenguaje técnico adecuad
                     }
                 }
 
-                throw new Exception("Se superó el límite de reintentos por demasiadas solicitudes (429).");
+                throw new Exception("Se superÃ³ el lÃ­mite de reintentos por demasiadas solicitudes (429).");
             }
         }
 
@@ -147,11 +165,32 @@ El formato debe ser profesional, con estructura clara y lenguaje técnico adecuad
                     "INSERT INTO ConsultasOpenAI (Fecha, Consulta, Respuesta) VALUES (@Fecha, @Consulta, @Respuesta)",
                     connection))
                 {
+<<<<<<< HEAD
                     await connection.OpenAsync();
                     command.Parameters.AddWithValue("@Fecha", DateTime.Now);
                     command.Parameters.AddWithValue("@Consulta", consulta);
                     command.Parameters.AddWithValue("@Respuesta", respuesta);
                     await command.ExecuteNonQueryAsync();
+=======
+                    connection.Open();
+
+                    string query = "INSERT INTO ConsultasOpenAI (Fecha, Consulta, Respuesta) VALUES (@Fecha, @Consulta, @Respuesta)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Fecha", DateTime.Now);
+                        command.Parameters.AddWithValue("@Consulta", consulta);
+                        command.Parameters.AddWithValue("@Respuesta", respuesta);
+
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Datos guardados con Ã©xito en la base de datos.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al guardar en la base de datos: {ex.Message}", "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+>>>>>>> 2ea1c1c7c9815997afc8933d24ab2b785b703257
                 }
             }
             catch (Exception ex)
@@ -219,13 +258,25 @@ El formato debe ser profesional, con estructura clara y lenguaje técnico adecuad
                 var mainPart = doc.AddMainDocumentPart();
                 mainPart.Document = new Document();
 
+<<<<<<< HEAD
                 var body = new Body(
                     new Paragraph(new Run(new DocumentFormat.OpenXml.Wordprocessing.Text("")))
+=======
+                // Agrega la consulta con formato de tÃ­tulo
+                body.Append(
+                    new Paragraph(new Run(new DocumentFormat.OpenXml.Wordprocessing.Text("Consulta:")))
+>>>>>>> 2ea1c1c7c9815997afc8933d24ab2b785b703257
                     {
                         ParagraphProperties = new ParagraphProperties(new Bold())
                     },
                     new Paragraph(new Run(new DocumentFormat.OpenXml.Wordprocessing.Text(consulta))),
+<<<<<<< HEAD
                     new Paragraph(new Run(new DocumentFormat.OpenXml.Wordprocessing.Text("")))
+=======
+
+                    // Agrega la respuesta con formato de tÃ­tulo
+                    new Paragraph(new Run(new DocumentFormat.OpenXml.Wordprocessing.Text("Respuesta:")))
+>>>>>>> 2ea1c1c7c9815997afc8933d24ab2b785b703257
                     {
                         ParagraphProperties = new ParagraphProperties(new Bold())
                     },
@@ -294,6 +345,10 @@ El formato debe ser profesional, con estructura clara y lenguaje técnico adecuad
 
         private string CrearNombreValido(string texto)
         {
+<<<<<<< HEAD
+=======
+            // Reemplazar caracteres no vÃ¡lidos para nombres de archivo
+>>>>>>> 2ea1c1c7c9815997afc8933d24ab2b785b703257
             foreach (char c in Path.GetInvalidFileNameChars())
             {
                 texto = texto.Replace(c, '_');
